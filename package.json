@@ -19,6 +19,7 @@
   "homepage": "https://github.com/dcastelline/Note-Taker-PartDeux#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "inquirer": "^7.3.3"
+    "inquirer": "^7.3.3",
+    "uniqid": "^5.2.0"
   }
 }
