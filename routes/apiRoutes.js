@@ -9,7 +9,7 @@ const uniqid = require("uniqid");
 // module export
 module.exports = (app) => {
   // gets and reads db.json
-  app.get('/api/notes', (req, res) => {
+  app.get('./api/notes', (req, res) => {
     fs.readFile('db/db.json', 'utf8', (err, data) => {
       if (err) throw err;
       else {
@@ -19,7 +19,7 @@ module.exports = (app) => {
   });
 
   // post a new note
-  app.post("/api/notes", (req, res) => {
+  app.post("./api/notes", (req, res) => {
     fs.readFile('db/db.json', 'utf8', (err, data) => {
       if (err) throw err;
       else {
@@ -31,7 +31,7 @@ module.exports = (app) => {
         newNote[theId] = noteId;
         note.push(newNote);
 
-        fs.writeFile('db/db.json', JSON.stringify(note), (err) => {
+        fs.writeFile('../db/db.json', JSON.stringify(note), (err) => {
           if (err) throw err;
           res.json(note);
         });
