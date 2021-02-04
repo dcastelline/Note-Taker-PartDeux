@@ -1,6 +1,6 @@
 // require fs
 const fs = require('fs');
-const db = require("db/db.json");
+const db = require("../db/db.json");
 
 // require uniqid and turns on debug messages
 module.uniqid_debug = true;
