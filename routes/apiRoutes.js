@@ -1,6 +1,6 @@
 // require fs
 const fs = require('fs');
-const db = require("../db/db.json");
+const db = require("./db/db.json");
 
 // require uniqid and turns on debug messages
 module.uniqid_debug = true;
@@ -10,7 +10,7 @@ const uniqid = require("uniqid");
 module.exports = (app) => {
   // gets and reads db.json
   app.get('/api/notes', (req, res) => {
-    fs.readFile('../db/db.json', 'utf8', (err, data) => {
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
       if (err) throw err;
       else {
         res.json(JSON.parse(data));
@@ -20,7 +20,7 @@ module.exports = (app) => {
 
   // post a new note
   app.post("/api/notes", (req, res) => {
-    fs.readFile('../db/db.json', 'utf8', (err, data) => {
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
       if (err) throw err;
       else {
         const note = JSON.parse(data);
@@ -31,7 +31,7 @@ module.exports = (app) => {
         newNote[theId] = noteId;
         note.push(newNote);
 
-        fs.writeFile('../db/db.json', JSON.stringify(note), (err) => {
+        fs.writeFile('./db/db.json', JSON.stringify(note), (err) => {
           if (err) throw err;
           res.json(note);
         });
