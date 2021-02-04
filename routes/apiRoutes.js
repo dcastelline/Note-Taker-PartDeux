@@ -9,8 +9,8 @@ const uniqid = require("uniqid");
 // module export
 module.exports = (app) => {
   // gets and reads db.json
-  app.get('./api/notes', (req, res) => {
-    fs.readFile('db/db.json', 'utf8', (err, data) => {
+  app.get('/api/notes', (req, res) => {
+    fs.readFile('../db/db.json', 'utf8', (err, data) => {
       if (err) throw err;
       else {
         res.json(JSON.parse(data));
@@ -19,8 +19,8 @@ module.exports = (app) => {
   });
 
   // post a new note
-  app.post("./api/notes", (req, res) => {
-    fs.readFile('db/db.json', 'utf8', (err, data) => {
+  app.post("/api/notes", (req, res) => {
+    fs.readFile('../db/db.json', 'utf8', (err, data) => {
       if (err) throw err;
       else {
         const note = JSON.parse(data);

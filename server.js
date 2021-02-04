@@ -1,7 +1,8 @@
 // Require express
 const express = require('express');
-const apiRoutes = require('./routes/apiRoutes.js');
-const htmlRoutes = require('./routes/htmlRoutes.js');
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
+const path = require('path');
 
 // Tell Node creating express server
 const app = express();
@@ -12,7 +13,7 @@ const PORT = process.env.PORT || 8080;
 // Set up express parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("/public"));
+app.use(express.static("./public"));
 
 // Routes
 apiRoutes(app);
